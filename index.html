@@ -2,6 +2,7 @@
 <meta name = "viewport"  content = "width = device-width, initial-scale = 1.0, user-scalable = no">
 <body>
 <canvas id = "canvas"> </canvas>
+<h1 id = "rotate">PLEASE ROTATE YOUR DEVIC</h1>
 <button id = "btn" onclick = "canvas.requestFullscreen ()">fullscreen</button>
 <img id = "heroImg" class = "img" src = "hero.png">
 <img id = "bg1" class = "img" src = "bg1.jpg">
@@ -20,7 +21,13 @@ transform:translate (-50%);
 left :50%;
 top : 0
 }
+#rotate{
+  display:none;
+}
 @media not screen and (orientation: landscape){
+#rotate {
+  display:box;
+}
 #canvas{
 display:none
 }
