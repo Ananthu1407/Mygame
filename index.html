@@ -1,0 +1,40 @@
+<html>
+<meta name = "viewport"  content = "width = device-width, initial-scale = 1.0, user-scalable = no">
+<body>
+<canvas id = "canvas"> </canvas>
+<button id = "btn" onclick = "canvas.requestFullscreen ()">fullscreen</button>
+<img id = "heroImg" class = "img" src = "hero.png">
+<img id = "bg1" class = "img" src = "bg1.jpg">
+</body>
+<style>
+html,body {
+margin : 0;
+}
+#canvas {
+margin :0;
+border : 5px solid black;
+}
+#btn {
+position : absolute;
+transform:translate (-50%);
+left :50%;
+top : 0
+}
+@media not screen and (orientation: landscape){
+#canvas{
+display:none
+}
+#btn {
+display : none
+}
+}
+.img {
+  display : none
+}
+</style>
+<script src = "evls.js"></script>
+<script src = "controls.js"></script>
+<script src = "hero.js"></script>
+<script src = "script.js"></script>
+<script>(function () { var script = document.createElement('script'); script.src="eruda.js"; document.body.append(script); script.onload = function () { eruda.init(); } })();</script>
+</html>
