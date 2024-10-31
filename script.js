@@ -9,13 +9,16 @@ const left = new control (0,300,100,100,"red");
 const right = new control (100,300,100,100,"red");
 const atk = new control (500,300,100,100,"red");
 const sensor = new evls (canvas,left,right,atk,player);
-let ti;
-let fp;
+let frames=-1;
+let fps;
+let deltatime;
+let lastTime = 0;
 window.onload = () => {
-    function animate (t,f){
-        ti = t;
-        fp = f;
-        ctx.clearRect (0,0,canvas.width,canvas.height);
+    function animate (time){
+        deltatime = time - lastTime;
+        lastTime = time;
+        fps = Math.round ((1000/deltatime)*100)/100;
+        ctx.clearRect (0,0,canvas.width,canvas.height);        
         ctx.drawImage (bg1,0,0);
        /* ctx.fillStyle = "white";
         ctx.fillRect (0,0,canvas.width,canvas.width);
@@ -27,6 +30,12 @@ window.onload = () => {
         player.update ();
         sensor.upt ();
         requestAnimationFrame (animate);
+        ctx.save ();
+        ctx.scale (2,2);
+        ctx.fillText (fps,40,40);
+        ctx.restore ();
+        //ctx.fillText (timer,40,80);
+        //ctx.fillText (frames,40,120);
     }
-    animate ();
+    animate (0);
 }
